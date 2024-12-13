@@ -2,7 +2,7 @@ package com.chenkuan.watchers.mvctest;
 
 import com.chenkuan.watchers.cache.api.WatchersManager;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

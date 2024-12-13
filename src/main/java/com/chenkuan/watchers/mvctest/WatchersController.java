@@ -3,7 +3,7 @@ package com.chenkuan.watchers.mvctest;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.chenkuan.watchers.common.CommonUtil;
 import com.github.benmanes.caffeine.cache.Cache;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
