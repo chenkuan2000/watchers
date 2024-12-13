@@ -3,7 +3,7 @@ package com.chenkuan.watchers.cache.api;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.chenkuan.watchers.cache.watchers.Watchers;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

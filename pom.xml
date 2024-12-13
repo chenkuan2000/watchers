@@ -5,13 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>2.2.5.RELEASE</version>
         <relativePath/>
     </parent>
 
+
     <groupId>io.github.chenkuan2000</groupId>
     <artifactId>watchers</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.4</version>
     <url>https://github.com/chenkuan2000/watchers</url>
     <licenses>
         <license>
@@ -69,6 +70,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -90,30 +92,35 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.21</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>4.12.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
             <version>2.0.4</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.4.2</version>
+            <version>2.10.2</version>
+            <scope>provided</scope>
         </dependency>
 
 

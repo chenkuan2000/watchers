@@ -8,7 +8,7 @@ import com.chenkuan.watchers.cache.cache.AbstractCacheProxy;
 import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersFactory;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
