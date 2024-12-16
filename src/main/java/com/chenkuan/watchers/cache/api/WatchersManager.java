@@ -3,7 +3,9 @@ package com.chenkuan.watchers.cache.api;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.chenkuan.watchers.cache.watchers.Watchers;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
+
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,11 +16,14 @@ import java.util.stream.Collectors;
  * @author chenkuan
  */
 
-@Component
+@Data
 public class WatchersManager {
 
-    @Resource
-    private WatchersRegistrar watchersRegistrar;
+    private final WatchersRegistrar watchersRegistrar;
+
+    public WatchersManager(WatchersRegistrar watchersRegistrar) {
+        this.watchersRegistrar = watchersRegistrar;
+    }
 
     public CacheConfig getDashboard(String cacheName) {
         Watchers cacheWatchers = getWatchers(cacheName);

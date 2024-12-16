@@ -4,6 +4,7 @@ import com.chenkuan.watchers.cache.cache.AbstractCaffeineCacheProxy;
 import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import lombok.Data;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author chenkuan
  **/
 
-@Component
+@Data
 public class CaffeineCacheBuilder implements CacheExampleBuilder, InitializingBean {
 
     @Override

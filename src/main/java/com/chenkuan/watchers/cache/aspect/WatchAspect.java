@@ -4,9 +4,9 @@ import com.chenkuan.watchers.cache.cache.CaffeineCacheProxy;
 import com.chenkuan.watchers.cache.cache.CaffeineGuavaProxy;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
 import com.github.benmanes.caffeine.cache.Cache;
+import lombok.Data;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
 
 
 /**
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
  */
 
 
+@Data
 @Aspect
-@Component
 public class WatchAspect {
 
     @Pointcut("@annotation(com.chenkuan.watchers.cache.aspect.Watch)")

@@ -4,6 +4,7 @@ import com.chenkuan.watchers.cache.cache.AbstractGuavaCacheProxy;
 import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.google.common.cache.CacheBuilder;
+import lombok.Data;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +12,12 @@ import org.springframework.stereotype.Component;
  * @author chenkuan
  **/
 
-@Component
+@Data
 public class GuavaCacheBuilder implements CacheExampleBuilder, InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
         CacheExampleBuilderFactory.register(AbstractGuavaCacheProxy.class, this);
-
     }
 
     @Override

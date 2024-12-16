@@ -6,6 +6,7 @@ import com.chenkuan.watchers.cache.watchers.CacheConfig;
 import com.chenkuan.watchers.cache.watchers.GuavaWatchers;
 import com.chenkuan.watchers.cache.watchers.Watchers;
 import com.google.common.cache.Cache;
+import lombok.Data;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,7 @@ import org.springframework.stereotype.Component;
  * @author chenkuan
  */
 
-
-@Component
+@Data
 public class GuavaWatchersBuilder implements WatchersBuilder, InitializingBean {
 
 
