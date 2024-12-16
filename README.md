@@ -2,3 +2,4 @@
 添加在配置类中的缓存上@Watch注解，即可完成对缓存的监控。
 WatchersManager是api入口，依赖注入该类就可以访问相应的功能。
 目前兼容的版本：jdk11、Springboot 2.x、Caffeine 3.x
+Guava相关功能已开发，但未验证，暂时不建议使用
