@@ -1,17 +1,21 @@
 package com.chenkuan.watchers.cache.watchers;
 
 
-
 import com.chenkuan.watchers.cache.builder.cache.CacheExampleBuilder;
 import com.chenkuan.watchers.cache.builder.watchers.WatchersBuilder;
 import com.chenkuan.watchers.cache.cache.AbstractCacheProxy;
 import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersFactory;
+
 import javax.annotation.Resource;
+
+import lombok.Data;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContextAware;
 
 import java.util.Map;
 
@@ -19,12 +23,15 @@ import java.util.Map;
  * @author chenkuan
  */
 
+@Data
+public class WatchersRegistrar implements ApplicationContextAware {
 
-@Component
-public class WatchersRegistrar {
-
-    @Resource
     private ApplicationContext applicationContext;
+
+    @Override
+    public void setApplicationContext(@NotNull ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 
     public static void createWatchers(String beanName, Object cacheBean, Class<?> clazz) {
 
@@ -36,14 +43,14 @@ public class WatchersRegistrar {
         WatchersBuilder watchersBuilder = WatchersBuilderFactory.get(clazz);
 
         if (watchersBuilder == null) {
-            return ;
+            return;
         }
 
         Watchers watchers = watchersBuilder.buildWatchers(beanName, cacheBean, cacheConfig);
         WatchersFactory.registerCacheWatchers(beanName, watchers);
     }
 
-    private static Object createCacheExample(Class<?> clazz,CacheConfig cacheConfig){
+    private Object createCacheExample(Class<?> clazz, CacheConfig cacheConfig) {
         CacheExampleBuilder cacheExampleBuilder = CacheExampleBuilderFactory.get(clazz);
         return cacheExampleBuilder.buildCache(cacheConfig);
     }
