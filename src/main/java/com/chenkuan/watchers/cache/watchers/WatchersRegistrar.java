@@ -8,7 +8,6 @@ import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersFactory;
 
-import javax.annotation.Resource;
 
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
