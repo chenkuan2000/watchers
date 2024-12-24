@@ -2,5 +2,5 @@ Watchers 是一站式缓存调控管理中心，旨在更轻便的监控、调�
 在配置类中的缓存bean上加 @Watch 注解，即可完成对缓存的监控。  
 WatchersManager 是 api 入口，依赖注入该类就可以访问相应的功能。  
 
-目前兼容的版本：jdk11、Springboot 2.x、Caffeine 3.x  
+目前兼容的版本：jdk11、jdk17、Springboot 2.x、Caffeine 3.x  
 Guava相关功能已开发，但未验证，暂时不建议使用  
