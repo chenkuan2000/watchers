@@ -17,8 +17,6 @@ import org.springframework.stereotype.Component;
 @Data
 public class GuavaWatchersBuilder implements WatchersBuilder, InitializingBean {
 
-
-
     @Override
     public void afterPropertiesSet() {
         WatchersBuilderFactory.register(Cache.class, this);

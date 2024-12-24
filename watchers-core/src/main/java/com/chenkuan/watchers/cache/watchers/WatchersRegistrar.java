@@ -1,9 +1,9 @@
 package com.chenkuan.watchers.cache.watchers;
 
 
+import com.chenkuan.watchers.AbstractCacheProxy;
 import com.chenkuan.watchers.cache.builder.cache.CacheExampleBuilder;
 import com.chenkuan.watchers.cache.builder.watchers.WatchersBuilder;
-import com.chenkuan.watchers.cache.cache.AbstractCacheProxy;
 import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersBuilderFactory;
 import com.chenkuan.watchers.cache.factory.WatchersFactory;

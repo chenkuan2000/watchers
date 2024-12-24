@@ -1,6 +1,7 @@
 package com.chenkuan.watchers.cache.cache;
 
 
+import com.chenkuan.watchers.AbstractCacheProxy;
 import com.google.common.cache.Cache;
 
 /**

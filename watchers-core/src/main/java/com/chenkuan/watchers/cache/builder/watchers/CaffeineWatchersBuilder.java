@@ -32,26 +32,6 @@ public class CaffeineWatchersBuilder implements WatchersBuilder, InitializingBea
 
         Cache<?, ?> cache = (Cache<?, ?>) cacheBean;
 
-        Policy<?, ?> policy = cache.policy();
-
-        if (cacheConfig == null) {
-
-            Long maxSize = policy.eviction().map(Policy.Eviction::getMaximum).orElse(null);
-            Long expireAfterAccess = policy.expireAfterAccess().map(expiration -> expiration.getExpiresAfter(TimeUnit.SECONDS)).orElse(null);
-            Long expireAfterWrite = policy.expireAfterWrite().map(expiration -> expiration.getExpiresAfter(TimeUnit.SECONDS)).orElse(null);
-            Boolean expireVariably = cache.policy().expireVariably().isPresent();
-
-            cacheConfig = CacheConfig.builder()
-                    .cacheName(beanName)
-                    .initializeSize(null)
-                    .maxSize(maxSize)
-                    .expireAfterAccess(expireAfterAccess)
-                    .expireAfterWrite(expireAfterWrite)
-                    .expireVariably(expireVariably)
-                    .build();
-
-        }
-
         return new CaffeineWatchers(beanName, cache, cacheConfig);
     }
 }

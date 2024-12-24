@@ -1,12 +1,11 @@
 package com.chenkuan.watchers.cache.factory;
 
+import com.chenkuan.watchers.AbstractCaffeineCacheProxy;
 import com.chenkuan.watchers.cache.builder.cache.CacheExampleBuilder;
-import com.chenkuan.watchers.cache.cache.AbstractCaffeineCacheProxy;
 import com.chenkuan.watchers.cache.cache.AbstractGuavaCacheProxy;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
 /**
  * @author chenkuan
