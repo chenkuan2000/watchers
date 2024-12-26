@@ -29,6 +29,9 @@
         <module>watchers-caffeine2</module>
         <module>watchers-caffeine3</module>
 
+        <module>watchers-guava-abstract</module>
+        <module>watchers-guava21</module>
+
         <module>watchers-core</module>
 
     </modules>

@@ -1,12 +1,8 @@
 package com.chenkuan.watchers.cache.api;
 
-import com.chenkuan.watchers.cache.watchers.CacheConfig;
-import com.chenkuan.watchers.cache.watchers.Watchers;
+import com.chenkuan.watchers.CacheConfig;
+import com.chenkuan.watchers.Watchers;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
-import javax.annotation.Resource;
-
-import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +12,6 @@ import java.util.stream.Collectors;
  * @author chenkuan
  */
 
-@Data
 public class WatchersManager {
 
     private final WatchersRegistrar watchersRegistrar;

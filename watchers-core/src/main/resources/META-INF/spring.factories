@@ -1,1 +1,4 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.chenkuan.watchers.cache.ComponentAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.chenkuan.watchers.Feature2AutoConfiguration,\
+  com.chenkuan.watchers.Feature3AutoConfiguration,\
+  com.chenkuan.watchers.cache.ComponentAutoConfiguration

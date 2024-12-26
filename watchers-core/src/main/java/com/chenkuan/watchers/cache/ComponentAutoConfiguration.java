@@ -1,17 +1,17 @@
 package com.chenkuan.watchers.cache;
 
+import com.chenkuan.watchers.Caffeine2WatchersBuilder;
+import com.chenkuan.watchers.Caffeine3WatchersBuilder;
+import com.chenkuan.watchers.Guava21WatchersBuilder;
 import com.chenkuan.watchers.cache.api.WatchersManager;
 import com.chenkuan.watchers.cache.aspect.WatchAspect;
-import com.chenkuan.watchers.cache.builder.cache.CaffeineCacheBuilder;
-import com.chenkuan.watchers.cache.builder.cache.GuavaCacheBuilder;
-import com.chenkuan.watchers.cache.builder.cache.test;
-import com.chenkuan.watchers.cache.builder.watchers.CaffeineWatchersBuilder;
-import com.chenkuan.watchers.cache.builder.watchers.GuavaWatchersBuilder;
+import com.chenkuan.watchers.cache.builder.creator.CaffeineCacheBuilder;
+import com.chenkuan.watchers.cache.builder.creator.GuavaCacheBuilder;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.github.benmanes.caffeine.cache.Policy;
 import com.google.common.cache.CacheBuilder;
 import org.junit.jupiter.api.Order;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,15 +25,8 @@ import org.springframework.context.annotation.DependsOn;
 @Configuration
 public class ComponentAutoConfiguration {
 
-
-    @Bean("testBuilder")
-    public test test(){
-        return new test();
-    }
-
-
     @Order(1)
-    @ConditionalOnClass({Caffeine.class, Policy.class})
+    @ConditionalOnClass(Caffeine.class)
     @Bean("caffeineCacheBuilder")
     public CaffeineCacheBuilder caffeineCacheBuilder() {
         return new CaffeineCacheBuilder();
@@ -41,10 +34,20 @@ public class ComponentAutoConfiguration {
 
     @Order(1)
     @DependsOn("caffeineCacheBuilder")
-    @ConditionalOnClass({Caffeine.class, Policy.class})
+    @ConditionalOnClass(Caffeine.class)
+    @ConditionalOnBean(name = "feature2")
     @Bean("caffeineWatchersBuilder")
-    public CaffeineWatchersBuilder caffeineWatchersBuilder() {
-        return new CaffeineWatchersBuilder();
+    public Caffeine2WatchersBuilder caffeine2WatchersBuilder() {
+        return new Caffeine2WatchersBuilder();
+    }
+
+    @Order(1)
+    @DependsOn("caffeineCacheBuilder")
+    @ConditionalOnClass(Caffeine.class)
+    @ConditionalOnBean(name = "feature3")
+    @Bean("caffeineWatchersBuilder")
+    public Caffeine3WatchersBuilder caffeine3WatchersBuilder() {
+        return new Caffeine3WatchersBuilder();
     }
 
     @Order(1)
@@ -58,8 +61,8 @@ public class ComponentAutoConfiguration {
     @DependsOn("guavaCacheBuilder")
     @ConditionalOnClass(CacheBuilder.class)
     @Bean("guavaWatchersBuilder")
-    public GuavaWatchersBuilder guavaWatchersBuilder() {
-        return new GuavaWatchersBuilder();
+    public Guava21WatchersBuilder guava21WatchersBuilder() {
+        return new Guava21WatchersBuilder();
     }
 
     @Order(1)
@@ -76,9 +79,10 @@ public class ComponentAutoConfiguration {
     }
 
     @Order(1)
-    @DependsOn({"caffeineWatchersBuilder","guavaWatchersBuilder"})
+    @DependsOn({"caffeineWatchersBuilder", "guavaWatchersBuilder"})
     @Bean("watchAspect")
     public WatchAspect watchAspect() {
         return new WatchAspect();
     }
+
 }

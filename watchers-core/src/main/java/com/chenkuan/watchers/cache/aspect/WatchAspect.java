@@ -4,10 +4,10 @@ import com.chenkuan.watchers.Caffeine2CacheProxy;
 import com.chenkuan.watchers.Caffeine3CacheProxy;
 import com.chenkuan.watchers.cache.watchers.WatchersRegistrar;
 import com.github.benmanes.caffeine.cache.Cache;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -15,10 +15,10 @@ import org.aspectj.lang.annotation.*;
  */
 
 
-@Data
 @Aspect
-@Slf4j
 public class WatchAspect {
+
+    private static final Logger log = LoggerFactory.getLogger(WatchAspect.class);
 
     @Pointcut("@annotation(com.chenkuan.watchers.cache.aspect.Watch)")
     public void pointCut() {
@@ -47,7 +47,7 @@ public class WatchAspect {
         } catch (ClassNotFoundException e1) {
             try {
                 // Caffeine 3.x 共用类
-                Class.forName("com.github.benmanes.caffeine.cache.CacheLoader");
+                Class.forName("com.github.benmanes.caffeine.cache.Policy$FixedRefresh");
                 cacheProxy = new Caffeine3CacheProxy((Cache<?, ?>) bean);
                 log.info("Caffeine 3.x");
             } catch (ClassNotFoundException e2) {

@@ -1,15 +1,10 @@
 package com.chenkuan.watchers.cache.watchers;
 
 
-import com.chenkuan.watchers.AbstractCacheProxy;
-import com.chenkuan.watchers.cache.builder.cache.CacheExampleBuilder;
-import com.chenkuan.watchers.cache.builder.watchers.WatchersBuilder;
-import com.chenkuan.watchers.cache.factory.CacheExampleBuilderFactory;
-import com.chenkuan.watchers.cache.factory.WatchersBuilderFactory;
-import com.chenkuan.watchers.cache.factory.WatchersFactory;
+import com.chenkuan.watchers.CacheConfig;
+import com.chenkuan.watchers.*;
 
 
-import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -22,7 +17,6 @@ import java.util.Map;
  * @author chenkuan
  */
 
-@Data
 public class WatchersRegistrar implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -39,7 +33,7 @@ public class WatchersRegistrar implements ApplicationContextAware {
     }
 
     private static void createWatchers(String beanName, Object cacheBean, CacheConfig cacheConfig, Class<?> clazz) {
-        WatchersBuilder watchersBuilder = WatchersBuilderFactory.get(clazz);
+        WatchersBuilder watchersBuilder = (WatchersBuilder) WatchersBuilderFactory.get(clazz);
 
         if (watchersBuilder == null) {
             return;
@@ -50,7 +44,7 @@ public class WatchersRegistrar implements ApplicationContextAware {
     }
 
     private Object createCacheExample(Class<?> clazz, CacheConfig cacheConfig) {
-        CacheExampleBuilder cacheExampleBuilder = CacheExampleBuilderFactory.get(clazz);
+        CacheExampleBuilder cacheExampleBuilder = (CacheExampleBuilder) CacheExampleBuilderFactory.get(clazz);
         return cacheExampleBuilder.buildCache(cacheConfig);
     }
 
@@ -90,6 +84,7 @@ public class WatchersRegistrar implements ApplicationContextAware {
     public Map<String, Watchers> getWatchers() {
         return WatchersFactory.getCacheWatchers();
     }
+
 
     /**
      * 获取CacheWatchers

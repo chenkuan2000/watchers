@@ -36,6 +36,18 @@
 
         <dependency>
             <groupId>io.github.chenkuan2000</groupId>
+            <artifactId>watchers-cache-abstract</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.chenkuan2000</groupId>
+            <artifactId>watchers-caffeine-abstract</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.chenkuan2000</groupId>
             <artifactId>watchers-caffeine2</artifactId>
             <version>${version}</version>
         </dependency>
@@ -48,16 +60,22 @@
 
         <dependency>
             <groupId>io.github.chenkuan2000</groupId>
-            <artifactId>watchers-caffeine-abstract</artifactId>
+            <artifactId>watchers-guava-abstract</artifactId>
             <version>${version}</version>
         </dependency>
 
         <dependency>
-            <groupId>io.github.chenkuan2000</groupId>
-            <artifactId>watchers-cache-abstract</artifactId>
-            <version>${version}</version>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>2.8.1</version>
+            <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.chenkuan2000</groupId>
+            <artifactId>watchers-guava21</artifactId>
+            <version>${version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,40 +108,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <optional>true</optional>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.ben-manes.caffeine</groupId>
-            <artifactId>caffeine</artifactId>
-            <version>3.1.3</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>32.1.2-jre</version>
-            <scope>provided</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.21</version>
-        </dependency>
 
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -142,8 +126,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.15.2</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.2-jre</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
@@ -168,6 +156,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

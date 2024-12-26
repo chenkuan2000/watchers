@@ -4,7 +4,6 @@ package com.chenkuan.watchers.cache.cache;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheStats;
 import com.google.common.collect.ImmutableMap;
-import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,7 +17,6 @@ import java.util.concurrent.ExecutionException;
  */
 
 
-@Getter
 public class CaffeineGuavaProxy extends AbstractGuavaCacheProxy {
 
     private Cache<Object, Object> cache;
@@ -28,6 +26,10 @@ public class CaffeineGuavaProxy extends AbstractGuavaCacheProxy {
         this.cache = (Cache<Object, Object>)cache;
     }
 
+
+    public Cache<Object, Object> getCache() {
+        return cache;
+    }
 
     @Override
     @SuppressWarnings("unchecked")
@@ -99,4 +101,6 @@ public class CaffeineGuavaProxy extends AbstractGuavaCacheProxy {
     public void cleanUp() {
         cache.cleanUp();
     }
+
+
 }
