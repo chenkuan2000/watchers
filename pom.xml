@@ -11,12 +11,12 @@
 
 
     <properties>
-        <version>0.0.8</version>
+        <version>0.0.9</version>
     </properties>
 
     <groupId>io.github.chenkuan2000</groupId>
     <artifactId>watchers</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
     <packaging>pom</packaging>
 
     <url>https://github.com/chenkuan2000/watchers</url>

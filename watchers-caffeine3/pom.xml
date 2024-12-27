@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.github.chenkuan2000</groupId>
         <artifactId>watchers</artifactId>
-        <version>0.0.8</version>
+        <version>0.0.9</version>
     </parent>
 
     <artifactId>watchers-caffeine3</artifactId>
