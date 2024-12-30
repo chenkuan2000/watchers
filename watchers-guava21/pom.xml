@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.chenkuan2000</groupId>
+        <artifactId>watchers</artifactId>
+        <version>0.0.9</version>
+    </parent>
+
+    <artifactId>watchers-guava21</artifactId>
+
+    <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/chenkuan2000/watchers.git</connection>
+        <developerConnection>scm:git:https://github.com/chenkuan2000.git</developerConnection>
+        <url>https://github.com/chenkuan2000/watchers</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>陈宽</name>
+            <email>chenkuan_2000@qq.com</email>
+        </developer>
+    </developers>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.2-jre</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.chenkuan2000</groupId>
+            <artifactId>watchers-guava-abstract</artifactId>
+            <version>${version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+
+
+
+    </dependencies>
+
+
+</project>
