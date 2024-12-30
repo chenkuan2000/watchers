@@ -24,7 +24,6 @@ public class GuavaCacheBuilder implements CacheExampleBuilder, InitializingBean 
     public Object buildCache(CacheConfig cacheConfig) {
         return CacheBuilder.newBuilder()
                 // 设置写入后过期时间
-                .expireAfterWrite(cacheConfig.getExpireAfterWrite().toSeconds(), TimeUnit.SECONDS)
                 // 设置初始容量
                 .initialCapacity(cacheConfig.getInitializeSize())
                 // 设置缓存的最大条目数
